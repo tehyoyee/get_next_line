@@ -1,15 +1,30 @@
 #include "get_next_line.h"
 
+
+
+int	is_newline(char *buffer)
+{
+	int	i;
+
+	i = 0;
+	while (buffer[i])
+	{
+		if (buffer[i] == '\n')
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
 char	*make_line(char *buffer, int len, char *line)
 {
 	int		i;
-	char	*result;
 
 	i = 0;
 	if (buffer[i] == '\0')
 		return (0);
 	free(line);
-	line = 0;
+	line = NULL;
 	line = (char *)malloc(sizeof(char) * (len + 1));
 	while (buffer[i] != '\0')
 	{
@@ -41,6 +56,25 @@ size_t	ft_strlen(const char *s)
 	return (result);
 }
 
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
+	size_t	dst_len;
+	size_t	src_len;
+
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	if (dstsize < dst_len + 1)
+		return (src_len + dstsize);
+	i = 0;
+	while (src[i] && dst_len + i + 1 < dstsize)
+	{
+		dst[dst_len + i] = src[i];
+		i++;
+	}
+	dst[dst_len + i] = '\0';
+	return (dst_len + src_len);
+}
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
