@@ -138,7 +138,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	return (dst);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t	len;
 	char	*arr;
@@ -159,6 +159,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		arr[i++] = *s1++;
 	while (*s2)
 		arr[i++] = *s2++;
+	free(s1);
 	arr[i] = '\0';
 	return (arr);
 }
