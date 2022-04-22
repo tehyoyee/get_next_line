@@ -62,9 +62,8 @@ char	*get_next_line(int fd)
 	}
 	if (line[fd])
 	{
-		nl = is_newline(line[fd]);
-		if (nl >= 0)
-			return (get_split_line(&line[fd], nl));
+		if (is_newline(line[fd]) >= 0)
+			return (get_split_line(&line[fd], is_newline(line[fd])));
 		else
 			return (final_line(&line[fd]));
 	}
