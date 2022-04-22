@@ -155,10 +155,15 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (!arr)
 		return (NULL);
 	i = 0;
-	while (*s1)
-		arr[i++] = *s1++;
+	while (s1[i])
+	{
+		arr[i] = s1[i];
+		i++;
+	}
 	while (*s2)
+	{
 		arr[i++] = *s2++;
+	}
 	free(s1);
 	arr[i] = '\0';
 	return (arr);
