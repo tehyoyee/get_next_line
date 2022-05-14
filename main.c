@@ -25,6 +25,6 @@ int	main(void)
 		free(c);
 		c = NULL;
 	}
-	// system("leaks a.out");
-	system("leaks a.out | grep leaked");
+	system("leaks asdf");
+	// system("leaks a.out | grep leaked");
 }

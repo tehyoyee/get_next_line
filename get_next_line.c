@@ -20,8 +20,7 @@ char	*get_split_line(char **line, int nl)
 	temp = ft_strdup(*line + nl + 1);
 	(*line)[nl + 1] = '\0';
 	arr = ft_strdup(*line);
-	if (*line)
-		free(*line);
+	free(*line);
 	*line = temp;
 	return (arr);
 }
